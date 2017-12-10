@@ -12,8 +12,9 @@
         <property name="hibernate.connection.useSSL">false</property>
         <property name="hibernate.connection.password"></property>
         <property name="show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="com.sda.hibernate.model.User"/>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <mapping class="com.mojafirma.model.User"/>
+        <mapping class="com.mojafirma.model.Tweet"/>
     </session-factory>
 </hibernate-configuration>
 
