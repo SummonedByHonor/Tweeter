@@ -13,11 +13,12 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table (name = "tweets")
 public class Tweet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "tweet_id")
+    @Column (name = "id")
     private int tweetId;
 
     @Column (name = "tweet_Time")
@@ -26,4 +27,6 @@ public class Tweet {
     @Column
     private String message;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private User user;
 }

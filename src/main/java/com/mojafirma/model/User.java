@@ -5,26 +5,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table (name = "users")
 public class User {
 
     @Id
     @GeneratedValue
-    @Column (name = "user_id")
-    private int userId;
+    @Column (name = "id")
+    private long userId;
 
-    @Column (name = "user_name")
+    @Column (name = "name")
     private String userName;
 
-    @Column (name = "user_password")
+    @Column (name = "password")
     private String userPassword;
 }
