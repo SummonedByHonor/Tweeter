@@ -30,4 +30,8 @@ public User getUser (Integer userID){
     session.close();
     return user;
 }
+
+public User getUserByNickAndPassword(String nick, String password){
+
+}
 }

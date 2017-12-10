@@ -18,8 +18,8 @@
 
 <div style="position: absolute; right: 40; top: 30;">
     <form>
-        <input type="text" placeholder="username"/>
-        <input type="text" placeholder="password"/>
+        <input type="text" name="user" placeholder="username"/>
+        <input type="text" name="password" placeholder="password"/>
     </form>
     <form>
         <div style="position: absolute; right: 0;">
