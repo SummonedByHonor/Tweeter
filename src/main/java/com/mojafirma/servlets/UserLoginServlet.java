@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "tweetLogin", value = "/tweetLogin")
-public class UserServlet extends HttpServlet {
+public class UserLoginServlet extends HttpServlet {
     UserController userController = new UserController();
 
     @Override
@@ -32,24 +32,8 @@ public class UserServlet extends HttpServlet {
         if (Strings.isNullOrEmpty(authorUser) || Strings.isNullOrEmpty(authorUserPassword)) {
             return;
         } else {
-            User user = new User();
-            user.setUserName(authorUser);
-            user.setUserPassword(authorUserPassword);
-            userController.addUserToDatabase(user);
-        }
-    }
-
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html; charset = utf-8");
-        String authorUser = req.getParameter("user");
-        String authorUserPassword = req.getParameter("password");
-
-        if (Strings.isNullOrEmpty(authorUser) || Strings.isNullOrEmpty(authorUserPassword)) {
-            return;
-        } else {
             List<User> usersList = userController.getUserFromDatabaseByNick(authorUser);
-            if (usersList.contains(authorUser)){
+            if (usersList.contains(authorUser)) {
                 Cookie cookie = new Cookie("userCookie", authorUser);
                 String redirectURL = "/tweetTable.jsp";
                 resp.sendRedirect(redirectURL);
@@ -58,6 +42,7 @@ public class UserServlet extends HttpServlet {
             }
         }
     }
+
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

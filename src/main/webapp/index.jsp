@@ -25,7 +25,7 @@
             <input type="button" value="Log In"/>
         </div>
     </form>
-    <form action="/tweetLogin" method="put">
+    <form action="/tweetLogin" method="post">
         <div style="position: absolute; right: 5;">
             <input type="button" value="Sign Up">
         </div>
